@@ -1129,6 +1129,7 @@
     return this._context.overrideMimeType = mimetype;
   };
 
+  // https://xhr.spec.whatwg.org/#the-getallresponseheaders()-method
   window.XMLHttpRequest.prototype.getAllResponseHeaders = function ()
   {
     var responseHeaders = this._context.responseHeaders;
@@ -1137,7 +1138,7 @@
     for (var i = 0; i < names.length; i++)
       list.push([names[i], responseHeaders[names[i]]].join(": "));
 
-    return list.join("\n");
+    return list.join("\r\n");
   };
 
   window.XMLHttpRequest.prototype.removeEventListener = function (type, listener)
